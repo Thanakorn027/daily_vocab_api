@@ -6,7 +6,6 @@ from app.schemas import WordResponse
 
 router = APIRouter()
 
-
 words = [
     { "word": "Ephemeral", "definition": "Lasting for a very short time.", "difficulty": "Advanced" },
     { "word": "Ubiquitous", "definition": "Present, appearing, or found everywhere.", "difficulty": "Intermediate" },
@@ -18,4 +17,5 @@ words = [
 
 @router.get("/word", response_model=WordResponse)
 def get_random_word():
-    ... 
+    random_word = random.choice(words)
+    return random_word
